@@ -1,17 +1,27 @@
-const fakeGist = {
-  id: 'foo'
-};
+import {
+  listByUser,
+  getById,
+} from '../lib/github-gists';
 
-export function getGistsByUser(username) {
-  return [fakeGist];
+function mapToResult({ id, description, }) {
+  return {
+    id,
+    description,
+    favorited: false,
+  };
 }
 
-export function getGistById(gistId) {
-  return fakeGist;
+export async function getGistsByUser(username) {
+  const gists = await listByUser(username);
+  return gists.map(mapToResult);
+}
+
+export async function getGistById(gistId) {
+  return mapToResult(await getById(gistId));
 }
 
 export function getFavoritedGists() {
-
+  return [];
 }
 
 export function favoriteGist(gistId) {

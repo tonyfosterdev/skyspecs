@@ -29,11 +29,13 @@ import {
 export const schema = `
   type Gist {
     id: String!
+    description: String
     favorited: Boolean
   }
 
   type GistFavoriteState {
     id: String!
+    description: String
     favorited: Boolean!
   }
 
