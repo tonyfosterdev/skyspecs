@@ -40,8 +40,9 @@ export const schema = `
   type Query {
     gistsByUser(username: String): [Gist]!
     gistById(gistId: String): Gist
-    favoritedGists(): [Gist]!
+    favoritedGists: [Gist]!
   }
+
   type Mutation {
     favoriteGist(gistId: String): GistFavoriteState
     unfavoriteGist(gistId: String): GistFavoriteState
