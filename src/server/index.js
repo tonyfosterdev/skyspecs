@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const {
-  schema: helloSchema,
-  resolver: helloResolver,
-} = require('./hello/graphql');
+  schema: gistSchema,
+  resolver: gistResolver,
+} = require('./gists/graphql');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,9 +14,11 @@ const graphqlPath = '/graphql';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const schema = buildSchema([helloSchema].join('\n'));
+// If needing to add more schemas, need to properly stitch
+const schema = buildSchema(gistSchema);
+
 const rootResolver = {
-  ...helloResolver,
+  ...gistResolver,
 };
 
 app.use(graphqlPath, graphqlHTTP({
