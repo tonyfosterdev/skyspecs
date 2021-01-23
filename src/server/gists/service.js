@@ -10,6 +10,10 @@ export function getGistById(gistId) {
   return fakeGist;
 }
 
+export function getFavoritedGists() {
+
+}
+
 export function favoriteGist(gistId) {
   return {
     id: gistId,
