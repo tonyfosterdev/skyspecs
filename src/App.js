@@ -1,7 +1,18 @@
+import { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    async function fetchGreeting() {
+      const response = await fetch('/api/hello');
+      console.log('RESPONSE', await response.json());
+    }
+    fetchGreeting();
+  }, []);
+
+
   return (
     <div className="App">
       <header className="App-header">
