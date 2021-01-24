@@ -37,10 +37,6 @@ export async function getGistsByUser(username) {
   return gists.map(mapToResult);
 }
 
-export async function getGistById(gistId) {
-  return mapToResult(await getById(gistId));
-}
-
 export function getFavoritedGists() {
   return [];
 }

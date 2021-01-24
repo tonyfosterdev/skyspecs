@@ -27,7 +27,6 @@ export const schema = `
 
   type Query {
     gistsByUser(username: String): [Gist]!
-    gistById(gistId: String): Gist
     favoritedGists: [Gist]!
   }
 
@@ -39,7 +38,6 @@ export const schema = `
 
 export const resolver = {
   gistsByUser: ({ username }) => getGistsByUser(username),
-  gistById: ({ gistId }) => getGistById(gistId),
   favoritedGists: () => getFavoritedGists(),
   favoriteGist: ({ gistId }) => favoriteGist(gistId),
   unfavoriteGist: ({ gistId }) => unfavoriteGist(gistId),
