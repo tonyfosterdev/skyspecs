@@ -39,7 +39,9 @@ under `/srv/server`.
 
 ### Missing Features
 
-Ugh. It didn't all get done. What is missing is the ability to save query favorites.
+Ugh. It didn't all get done. 
+1. The ability to save query favorites.
+1. Paging large numbers of items. The page limits are set by the GitHub API.
 
 ## Available Scripts
 
