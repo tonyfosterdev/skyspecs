@@ -2,23 +2,42 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## GraphQL
+## Getting Started
+
+1. Installed dependencies: `npm install`
+1. Start Postgres: `docker-compose up -d`
+1. Run the application: `npm run start`
+
+### Troubleshooting
+
+You may get node-gyp errors when running npm install. If this is the case, you may need to install
+g++ and build-essentials.
+
+## Features
+
+The following items are available in the application for use by developers.
+
+### GraphQL
 
 Thie application features a GraphQL API. Graphiql is available at \
 [http://localhost:5000/graphql](http://localhost:5000/graphql)
 
-## Postgres
+### Postgres
 
 Postgres may be started with `docker-compose up -d`. If you have your own instance setup, you may configure it in `.env`.
 
-## File Structure
+### PgAdmin
+
+PgAdmin is available at `http://localhost:5050`. You may find the credentials in the `docker-compose.yaml` file.
+
+### File Structure
 
 All source files are under `/src`. Server side files are under `/src/server`.  
 
 With more time, I would restructure the application so that all client files are under `/src/client` and server files\
 under `/srv/server`. 
 
-## Missing Features
+### Missing Features
 
 Ugh. It didn't all get done. What is missing is the ability to save query favorites.
 
