@@ -2,7 +2,7 @@ import { useGistsByUser } from '../../hooks/useGistsByUser';
 import { useState, useEffect } from 'react';
 import { PageHeader, List, Card } from 'antd';
 import { useHistory, useParams } from 'react-router-dom';
-import moment from 'moment';
+import { formatDate } from '../../util/dates';
 import './ViewGist.css';
 
 export function ViewGist() {
@@ -29,7 +29,7 @@ export function ViewGist() {
       {!!gistData && (
         <div className="view-gist-data">
           <h2>{gistData.description}</h2>
-          <h3>By @{gistData.createdBy} at {moment(gistData.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</h3>
+          <h3>By @{gistData.createdBy} at {formatDate(gistData.createdAt)}</h3>
           <List
             loading={loading}
             grid={{ column: 1 }}
