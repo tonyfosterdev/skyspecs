@@ -1,12 +1,16 @@
 import { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Input } from 'antd'
 
 const { Search } = Input;
 
 export function SearchInput() {
-  const history = useHistory();
 
+  // This will be used to prepopulate the search field
+  const { username } = useParams();
+
+  // Searching should send users to the search page
+  const history = useHistory();
   const onSearch = useCallback((username) => {
     history.push(`/search/${username}`);
   }, [history]);
@@ -14,6 +18,7 @@ export function SearchInput() {
   return (
     <div className="SearchInput">
       <Search
+        defaultValue={username}
         placeholder="GitHub Username"
         allowClear
         enterButton="Find Gists"

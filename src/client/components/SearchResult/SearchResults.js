@@ -24,6 +24,7 @@ export function SearchResults() {
     history.push(`/gist/${item.createdBy}/${item.id}`);
   };
 
+  // Using params allows this page to bookmarked!
   const { username } = useParams();
   const { loading, data: results } = useGistsByUser(username);
 

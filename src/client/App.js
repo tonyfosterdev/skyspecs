@@ -19,26 +19,42 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+function SearchRoute({ children }) {
+  return (
+    <>
+      <SearchInput />
+      {children}
+    </>
+  );
+}
+
 function App() {
   return (
     <div className="App">
       <Router>
         <ApolloProvider client={client}>
           <div>
-            <SearchInput />
             <Switch>
               { /* TODO: Use complex pattern to resolve the empty result */}
               <Route exact path="/search">
-                <EmptyResult />
+                <SearchRoute>
+                  <EmptyResult />
+                </SearchRoute>
               </Route>
               <Route exact path="/">
-                <EmptyResult />
+                <SearchRoute>
+                  <EmptyResult />
+                </SearchRoute>
               </Route>
               <Route path="/search/:username">
-                <SearchResults />
+                <SearchRoute>
+                  <SearchResults />
+                </SearchRoute>
               </Route>
               <Route path="/gist/:username/:gistId">
-                <ViewGist />
+                <SearchRoute>
+                  <ViewGist />
+                </SearchRoute>
               </Route>
             </Switch>
           </div>

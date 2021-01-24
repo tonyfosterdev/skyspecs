@@ -41,7 +41,7 @@ export function ViewGist() {
                     <li>Type: {item.type}</li>
                     <li>Language: {item.language}</li>
                     <li>Size: {item.size} bytes</li>
-                    <li>URL: <a href={item.url}>{item.url}</a></li>
+                    <li>URL: <a target="top" href={item.url}>{item.url}</a></li>
                   </ul>
                 </Card>
               </List.Item>
