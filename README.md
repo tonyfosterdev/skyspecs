@@ -35,14 +35,22 @@ PgAdmin is available at `http://localhost:5050`. You may find the credentials in
 
 All source files are under `/src`. Server side files are under `/src/server` and client files under `/src/client`.  
 
-With more time, I would restructure the application so that all client files are under `/src/client` and server files\
-under `/srv/server`. 
+On the server side, entities are grouped in their own folders with GitHub API functionality going under `lib`.
+
+On the client side, components are listed under the `components` folder with their CSS and an `index.js`.
+
+### Naming
+
+CSS classes mapping to a component name are capitalized with camel-case to show they're the root class of a component.
+
+Other CSS classes are snake-cased.
 
 ### Missing Features
 
 Ugh. It didn't all get done. 
 1. The ability to save query favorites.
 1. Paging large numbers of items. The page limits are set by the GitHub API.
+1. Robust error handling.
 
 ## Available Scripts
 

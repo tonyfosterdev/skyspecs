@@ -12,7 +12,9 @@ export function SearchInput() {
   // Searching should send users to the search page
   const history = useHistory();
   const onSearch = useCallback((username) => {
-    history.push(`/search/${username}`);
+    if (username) {
+      history.push(`/search/${username}`);
+    }
   }, [history]);
 
   return (

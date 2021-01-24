@@ -34,6 +34,8 @@ function setupExpress() {
     graphiql: true,
   }));
 
+  // TODO: Add an error handler for robust error handling.
+
   app.listen(port, () => console.log(`Listening on port ${port}. GraphiQL may be accessed here at http://localhost:${port}${graphqlPath}`));
 }
 

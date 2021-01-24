@@ -7,9 +7,11 @@ export async function fetchFromGithubApi(path) {
     }),
   });
 
+  // Throw and error if it didn't succeed.
   if (!response.ok) {
     throw new Error(`Failed calling ${path}`);
   }
 
+  // Return the JSON
   return await response.json();
 }
