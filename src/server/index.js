@@ -23,6 +23,7 @@ function setupExpress() {
   // If needing to add more schemas, need to properly stitch
   const schema = buildSchema(gistSchema);
 
+  // Resolvers may be added here
   const rootResolver = {
     ...gistResolver,
   };
@@ -36,6 +37,7 @@ function setupExpress() {
   app.listen(port, () => console.log(`Listening on port ${port}. GraphiQL may be accessed here at http://localhost:${port}${graphqlPath}`));
 }
 
+// Ensure the database is ready before launching express
 setupApplicationDatabase()
   .then(() => setupExpress())
 

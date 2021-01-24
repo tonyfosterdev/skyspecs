@@ -12,6 +12,7 @@ export async function setupApplicationDatabase() {
     console.warn(`Database '${database}' does not exist, creating...`);
     await client.none(`CREATE DATABASE $1:name`, [database]);
 
+    //  We create the database. This should have been done with something like sequelize
     const appClient = getApplicationDbClient();
     await appClient.none(`
       CREATE TABLE public.gists
