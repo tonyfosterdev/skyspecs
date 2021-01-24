@@ -1,10 +1,9 @@
-import { useGistsByUser } from './useGistsByUser';
+import { useGistsByUser } from '../../hooks/useGistsByUser';
 import {
   PageHeader,
   List,
   Avatar,
   Skeleton,
-  Empty,
 } from 'antd';
 import { StarOutlined } from '@ant-design/icons';
 import {
@@ -34,7 +33,6 @@ export function SearchResults() {
         onBack={onBack}
         title={`Showing Gists for @${username}`}
       />
-      {!loading && !results && (<Empty />)}
       <List
         itemLayout="horizontal"
         loading={loading}

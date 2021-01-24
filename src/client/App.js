@@ -8,26 +8,16 @@ import {
   ApolloProvider,
   InMemoryCache
 } from '@apollo/client';
-import { Empty } from 'antd';
+import { EmptyResult } from './components/EmptyResult';
 import { SearchInput } from './components/SearchInput';
-import { SearchResults } from './components/SearchResults';
+import { SearchResults } from './components/SearchResult';
 import { ViewGist } from './components/ViewGist';
 import './App.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
+  uri: '/graphql',
   cache: new InMemoryCache()
 });
-
-// Vman45
-
-function EmptyResult() {
-  return (
-    <div className="EmptyResult">
-      <Empty />
-    </div>
-  );
-}
 
 function App() {
   return (
@@ -37,6 +27,7 @@ function App() {
           <div>
             <SearchInput />
             <Switch>
+              { /* TODO: Use complex pattern to resolve the empty result */}
               <Route exact path="/search">
                 <EmptyResult />
               </Route>

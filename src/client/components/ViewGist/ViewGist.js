@@ -1,4 +1,4 @@
-import { useGistsByUser } from './useGistsByUser';
+import { useGistsByUser } from '../../hooks/useGistsByUser';
 import { useState, useEffect } from 'react';
 import { PageHeader, List, Card } from 'antd';
 import { useHistory, useParams } from 'react-router-dom';
