@@ -1,11 +1,20 @@
 import { useGistsByUser } from './useGistsByUser';
-import { PageHeader, List, Avatar, Skeleton, Empty } from 'antd';
+import {
+  PageHeader,
+  List,
+  Avatar,
+  Skeleton,
+  Empty,
+} from 'antd';
+import { StarOutlined } from '@ant-design/icons';
 import {
   useHistory,
   useParams
 } from 'react-router-dom';
 import moment from 'moment';
 import './SearchResults.css';
+
+const FavoriteIcon = () => <StarOutlined className="FavoriteIcon" />;
 
 export function SearchResults() {
 
@@ -33,7 +42,7 @@ export function SearchResults() {
         renderItem={item => (
           <List.Item
             actions={[
-              <button className="action-button" onClick={() => null}>Star</button>
+              <button className="action-button" onClick={() => null}><FavoriteIcon /></button>
             ]}
           >
             <Skeleton avatar title={false} loading={loading} active>
