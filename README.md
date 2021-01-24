@@ -1,6 +1,7 @@
 # Gist Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+It has been ejected to allow for better file structure.
 
 ## Getting Started
 
@@ -32,7 +33,7 @@ PgAdmin is available at `http://localhost:5050`. You may find the credentials in
 
 ### File Structure
 
-All source files are under `/src`. Server side files are under `/src/server`.  
+All source files are under `/src`. Server side files are under `/src/server` and client files under `/src/client`.  
 
 With more time, I would restructure the application so that all client files are under `/src/client` and server files\
 under `/srv/server`. 
