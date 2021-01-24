@@ -1,24 +1,58 @@
-import { useEffect } from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache
+} from '@apollo/client';
+import { Empty } from 'antd';
+import { SearchInput } from './components/SearchInput';
+import { SearchResults } from './components/SearchResults';
+import { ViewGist } from './components/ViewGist';
 import './App.css';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3000/graphql',
+  cache: new InMemoryCache()
+});
+
+// Vman45
+
+function EmptyResult() {
+  return (
+    <div className="EmptyResult">
+      <Empty />
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ApolloProvider client={client}>
+          <div>
+            <SearchInput />
+            <Switch>
+              <Route exact path="/search">
+                <EmptyResult />
+              </Route>
+              <Route exact path="/">
+                <EmptyResult />
+              </Route>
+              <Route path="/search/:username">
+                <SearchResults />
+              </Route>
+              <Route path="/gist/:username/:gistId">
+                <ViewGist />
+              </Route>
+            </Switch>
+          </div>
+        </ApolloProvider>
+      </Router>
     </div>
   );
 }

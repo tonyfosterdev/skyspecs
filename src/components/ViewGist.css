@@ -1,0 +1,6 @@
+.ViewGist li {
+  list-style-position:inside;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;    
+}

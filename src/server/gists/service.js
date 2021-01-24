@@ -3,10 +3,31 @@ import {
   getById,
 } from '../lib/github-gists';
 
-function mapToResult({ id, description, }) {
+function mapToResult({
+  id,
+  description,
+  created_at: createdAt,
+  owner,
+  files,
+}) {
+  const fileArray = !files ? [] : Object.keys(files).map((filename) => {
+    const { type, language, raw_url: url, size } = files[filename];
+    return {
+      filename,
+      type,
+      language,
+      url,
+      size,
+    };
+  });
+  const { login: createdBy, avatar_url: avatarUrl } = owner;
   return {
     id,
+    createdAt,
+    createdBy,
+    avatarUrl,
     description,
+    files: fileArray,
     favorited: false,
   };
 }
