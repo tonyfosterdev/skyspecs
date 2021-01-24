@@ -1,6 +1,5 @@
 import {
   listByUser,
-  getById,
 } from '../lib/github-gists';
 
 function mapToResult({
