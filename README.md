@@ -7,6 +7,14 @@ It has been ejected to allow for better file structure.
 
 1. Installed dependencies: `npm install`
 1. Start Postgres: `docker-compose up -d`
+1. Create a .env file with your database information. By default you may use this:
+    ```.env
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USER=postgres
+    DB_PASS=changeme
+    DB_APP=gists
+    ```
 1. Run the application: `npm run start`
 
 ### Troubleshooting
